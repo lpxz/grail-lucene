@@ -1,0 +1,21 @@
+Thread [Query1] (Suspended (breakpoint at line 588 in FSDirectory$FSIndexInput))	
+	FSDirectory$FSIndexInput.readInternal(byte[], int, int) line: 588	
+	FSDirectory$FSIndexInput(BufferedIndexInput).readBytes(byte[], int, int, boolean) line: 136	
+	CompoundFileReader$CSIndexInput.readInternal(byte[], int, int) line: 247	
+	CompoundFileReader$CSIndexInput(BufferedIndexInput).refill() line: 157	
+	CompoundFileReader$CSIndexInput(BufferedIndexInput).readByte() line: 38	
+	CompoundFileReader$CSIndexInput(IndexInput).readVLong() line: 101	
+	SegmentTermEnum.next() line: 130	
+	TermInfosReader.ensureIndexIsRead() line: 177	
+	TermInfosReader.get(Term, boolean) line: 225	
+	TermInfosReader.get(Term) line: 218	
+	SegmentReader.docFreq(Term) line: 748	
+	IndexSearcher.docFreq(Term) line: 86	
+	DefaultSimilarity(Similarity).idf(Term, Searcher) line: 457	
+	TermQuery$TermWeight.<init>(TermQuery, Searcher) line: 44	
+	TermQuery.createWeight(Searcher) line: 146	
+	TermQuery(Query).weight(Searcher) line: 95	
+	IndexSearcher(Searcher).createWeight(Query) line: 185	
+	IndexSearcher(Searcher).search(Query, Filter, int) line: 136	
+	Search$QueryProcessor.run() line: 241	
+	Search$QueryThread.run() line: 179	

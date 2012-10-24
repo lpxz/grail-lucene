@@ -1,0 +1,15 @@
+Thread [main] (Suspended)	
+	FSDirectory$FSIndexInput.readInternal(byte[], int, int) line: 588	
+	FSDirectory$FSIndexInput(BufferedIndexInput).readBytes(byte[], int, int, boolean) line: 136	
+	CompoundFileReader$CSIndexInput.readInternal(byte[], int, int) line: 247	
+	CompoundFileReader$CSIndexInput(BufferedIndexInput).refill() line: 157	
+	CompoundFileReader$CSIndexInput(BufferedIndexInput).readByte() line: 38	
+	CompoundFileReader$CSIndexInput(IndexInput).readVInt() line: 78	
+	SegmentTermDocs.read(int[], int[]) line: 142	
+	TermScorer.next() line: 106	
+	TermScorer.score(HitCollector) line: 60	
+	IndexSearcher.search(Weight, Filter, HitCollector) line: 136	
+	IndexSearcher(Searcher).search(Query, Filter, HitCollector) line: 126	
+	IndexSearcher(Searcher).search(Query, HitCollector) line: 105	
+	SearchFiles.doPagingSearch(BufferedReader, Searcher, Query, int, boolean, boolean) line: 197	
+	SearchFiles.main(String[]) line: 154	
