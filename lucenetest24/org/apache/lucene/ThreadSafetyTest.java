@@ -52,8 +52,10 @@ class ThreadSafetyTest {
     public void run() {
       try {
         boolean useCompoundFiles = false;
-        
-        for (int i = 0; i < 1024*ITERATIONS; i++) {
+        int totalrun = 1024*ITERATIONS;
+        if(ThreadSafetyTest.monitorrun)
+        	totalrun= 5*ITERATIONS;
+        for (int i = 0; i < totalrun; i++) {
           Document d = new Document();
           int n = RANDOM.nextInt();
           d.add(new Field("id", Integer.toString(n), Field.Store.YES, Field.Index.NOT_ANALYZED));
@@ -93,7 +95,11 @@ class ThreadSafetyTest {
 
     public void run() {
       try {
-        for (int i = 0; i < 512*ITERATIONS; i++) {
+          int totalrun = 512*ITERATIONS;
+          if(ThreadSafetyTest.monitorrun)
+          	totalrun= 5*ITERATIONS;
+          
+        for (int i = 0; i < totalrun; i++) {
           searchFor(RANDOM.nextInt(), (searcher==null)?SEARCHER:searcher);
           if (i%reopenInterval == 0) {
             if (searcher == null) {
@@ -124,6 +130,7 @@ class ThreadSafetyTest {
     }
   }
 
+  public static boolean monitorrun= false;
   public static void main(String[] args) throws Exception {
 
     boolean readOnly = false;
@@ -136,6 +143,12 @@ class ThreadSafetyTest {
         add = true;
     }
 
+    // help pecan, lpxz
+     if(args[args.length-1].equals("true"))
+     {
+    	 monitorrun=true;
+     }
+     
     File indexDir = new File("index");
     if (! indexDir.exists()) indexDir.mkdirs();
     
