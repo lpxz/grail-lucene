@@ -55,6 +55,7 @@ class ExtendedFieldCacheImpl extends FieldCacheImpl implements ExtendedFieldCach
 
   Cache longsCache = new Cache() {
 
+	  
     protected Object createValue(IndexReader reader, Object entryKey)
         throws IOException {
       Entry entry = (Entry) entryKey;

@@ -167,6 +167,7 @@ extends PriorityQueue {
     return (ScoreDocComparator)Comparators.get(reader, entry);
   }
 
+  
   /** Internal cache of comparators. Similar to FieldCache, only
    *  caches comparators instead of term values. */
   static final FieldCacheImpl.Cache Comparators = new FieldCacheImpl.Cache() {
